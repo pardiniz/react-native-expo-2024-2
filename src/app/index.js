@@ -1,10 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
-  return (
+  return(
     <View style={styles.container}>
-      <Text>Minha primeira janela</Text>
+      <Text style={styles.title}>Minha Primeira Janela</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -16,5 +16,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  title: {
+    fontFamily: "regular",
+    fontSize: 20,
   },
 });
