@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
+import { useFonts } from "expo-font";
 
 const FontContext = createContext({});
 

@@ -1,4 +1,8 @@
 import { createContext, useEffect } from "react";
+import { useState } from "react";
+import React, { useContext } from "react";
+import { AuthContext } from'./AuthContext';
+import { authUser } from "../../database/useUsersDatabase"
 
 const AuthContext = createContext({})
 
@@ -18,6 +22,16 @@ export function AuthProvider({children}) {
   });
 
   const signIn = async ({email, password}) => {
+  const response = await authUser({email, password});
+   
+  if (!response) {
+    setUser({
+    autenticated: false,
+    user: null,
+    role: null, 
+    });
+  }
+
 
     if (email === "super@email.com" && password === "Super123!") {
        setUser({
