@@ -7,7 +7,7 @@ async function authUser({email, password}) {
     console.log ("authUser email: ", email, " - password: ", password);
     try {
        const result = await database.getFirstAsync(`
-        SELECT id, nome, email, role FROM users where email '${email}' and senha = '${password}'
+        SELECT id, nome, email, role FROM users where email='${email}' and senha='${password}';
     `);
     return result 
     } catch (error) {
