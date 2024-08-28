@@ -1,6 +1,4 @@
-import { createContext, useEffect } from "react";
-import { useState } from "react";
-import React, { useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useUserDatabase } from "../../database/useUsersDatabase";
 
 const AuthContext = createContext({});
@@ -12,7 +10,6 @@ export const Role = {
 };
 
 export function AuthProvider({ children }) {
-  const { authUser } = useUserDatabase();
 
   const [user, setUser] = useState({
     autenticated: null,
@@ -20,8 +17,11 @@ export function AuthProvider({ children }) {
     role: null,
   });
 
+  const { authUser } = useUserDatabase();
+
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
+    console.log(!response);
 
     if (!response) {
       setUser({
@@ -29,21 +29,22 @@ export function AuthProvider({ children }) {
         user: null,
         role: null,
       });
+      throw new Error("Usuário ou senha invalidos");
     }
 
-    if (email === "super@email.com" && password === "Super123!") {
+    if (email === "super@email.com" && password === "A123456a!") {
       setUser({
         autenticated: true,
         user: { id: 1, name: "Super Usuar", email },
         role: Role.SUPER,
       });
-    } else if (email === "adm@email.com" && password === "adm123!") {
+    } else if (email === "adm@email.com" && password === "A123456a!") {
       setUser({
         autenticated: true,
         user: { id: 2, name: "Administrador", email },
         role: Role.ADM,
       });
-    } else if (email === "user@email.com" && password === "user123!") {
+    } else if (email === "user@email.com" && password === "A123456a!") {
       setUser({
         autenticated: false,
         user: null,

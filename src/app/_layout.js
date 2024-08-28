@@ -11,12 +11,14 @@ const StackLayout = () => {
     const inAuthGroup = segments[0] === "(protected)";
 
     if (!user?.autenticated && inAuthGroup) {
-      router.replace("/");
-    } else {
-      if (!user?.autenticated) {
-        router.replace("/(protected)");
+      //  router.replace("/");
+      if (router.canGoBack()){
+        router.back();
       }
-      router.replace("/(protected)");
+    } else {
+      if (user?.autenticated) {
+        router.push("(protected)");
+      }
     }
   }, [user]);
   return (
