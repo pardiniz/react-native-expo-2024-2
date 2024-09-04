@@ -51,9 +51,7 @@ useEffect(()=>{
 
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
-    console.log(!response);
-
-    if (!response) {
+   if (!response) {
       setUser({
         autenticated: false,
         user: null,
@@ -91,9 +89,7 @@ useEffect(()=>{
     setUser({});
   };
 
-  useEffect(() => {
-    console.log("AuthContext: ", user);
-  }, [user]);
+  
 
   if (user?.autenticated === null) {
     return (
