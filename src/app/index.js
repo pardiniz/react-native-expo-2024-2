@@ -20,7 +20,7 @@ const tooglePasswordVisibility = () => {
       await signIn({ email , password  });
       router.replace("/");
     } catch (error) {
-      Alert.alert("Erro, error.message");
+      Alert.alert("Senha ou usuario incorretos");
       console.log(error);
     }
   };
