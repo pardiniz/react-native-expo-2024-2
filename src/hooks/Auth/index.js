@@ -12,7 +12,6 @@ export const Role = {
 };
 
 export function AuthProvider({ children }) {
-
   const [user, setUser] = useState({
     autenticated: null,
     user: null,
@@ -27,11 +26,10 @@ export function AuthProvider({ children }) {
 
       if (storagedUser) {
         setUser({
-          autenticated: true, 
+          autenticated: true,
           user: JSON.parse(storagedUser),
           role: JSON.parse(storagedUser).role,
         });
-    
       } else {
         setUser({
           autenticated: false,
@@ -42,54 +40,31 @@ export function AuthProvider({ children }) {
     };
 
     loadStorageData();
-
   }, []);
-  
-useEffect(()=>{
-  console.log("AuthProvider: ", user);
-},[user])
+
+  useEffect(() => {
+    console.log("AuthProvider: ", user);
+  }, [user]);
 
   const signIn = async ({ email, password }) => {
     const response = await authUser({ email, password });
-   if (!response) {
+    if (!response) {
       setUser({
         autenticated: false,
         user: null,
         role: null,
       });
       throw new Error("Usuário ou senha invalidos");
-
-      await AsyncStorage.setItem("@payment:user", JSON.stringify(response));
-
     }
 
-    if (email === "super@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: true,
-        user: { id: 1, name: "Super Usuar", email },
-        role: Role.SUPER,
-      });
-    } else if (email === "adm@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: true,
-        user: { id: 2, name: "Administrador", email },
-        role: Role.ADM,
-      });
-    } else if (email === "user@email.com" && password === "A123456a!") {
-      setUser({
-        autenticated: false,
-        user: null,
-        role: null,
-      });
-    }
+    setUser(response);
+    await AsyncStorage.setItem("@payment:user", JSON.stringify(response));
   };
 
   const signOut = async () => {
     await AsyncStorage.removeItem("@payment:user");
     setUser({});
   };
-
-  
 
   if (user?.autenticated === null) {
     return (
@@ -101,7 +76,6 @@ useEffect(()=>{
       </View>
     );
   }
-
 
   return (
     <AuthContext.Provider value={{ user, signIn, signOut }}>
