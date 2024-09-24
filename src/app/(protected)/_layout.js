@@ -1,23 +1,25 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Drawer } from "expo-router/drawer";
-import { Button, Text, TouchableOpacity, View } from "react-native";
+import { Button, Text, TouchableOpacity, View, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../../hooks/Auth/index";
+import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ marginTop: 20 }}>
+      <View style={{ marginTop: 28 }}>
         <Image
           source={{
             uri: "https://www.github.com/pardiniz.png",
           }}
-          style={{ width: 100, height: 100, borderRadius: 50, margin: 10 }}
+          style={{ width: 100, height: 100, borderRadius: 50, margin:19 }}
         />
         <Text
-          style={{ textAlign: "center", fontSize: 16, fontFamily: "regular" }}
+          style={{ textAlign: "center", fontSize: 30, fontFamily: "regular" }}
         >
           {user.user.nome}
         </Text>
@@ -59,10 +61,10 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="list"
           options={{
-            drawerLabel: "Listagem",
-            headerTitle: "Listagem",
+            drawerLabel: "Reino Moderno da Inglaterra",
+            headerTitle: "Reino Moderno da Inglaterra",
             drawerIcon: () => (
-              <Ionicons name="list-outline" size={20} color="black" />
+              <FontAwesome6 name="crown" size={20} color="black" />
             ),
           }}
         />
