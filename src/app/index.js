@@ -40,7 +40,7 @@ export default function App() {
         />
       </View>
       <View style={styles.inputbox}>
-        <Ionicons name="lock-closed-outline" size={20} color="#800000" />
+        <Ionicons name="lock-closed-outline" size={20} color="000" />
         <TextInput
           style={styles.emailinput}
           placeholder="Senha"

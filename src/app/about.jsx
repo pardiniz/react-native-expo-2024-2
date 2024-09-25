@@ -8,13 +8,13 @@ export default function About() {
             <View style={styles.box}>
                 <Text style={styles.subtitle}>Sobre Mim</Text>
                 <Text style={styles.description}>
-                    Olá! Eu sou Beatriz Pardini, tenho 17 anos e sou estudante da Etec Professor Milton Gazzetti e faço o curso de Informática para Internet.
+                Olá! Meu nome é Beatriz Pardini, tenho 17 anos e sou estudante na Etec Professor Milton Gazzetti, onde curso Informática para Internet. Estou entusiasmada com o aprendizado das tecnologias que moldam o mundo digital e sempre em busca de novas oportunidades para crescer e me desenvolver na área.
                 </Text>
             </View>
             <View style={styles.box}>
                 <Text style={styles.subtitle}>Finalidade do Aplicativo</Text>
                 <Text style={styles.description}>
-                    Este aplicativo foi desenvolvido para prestar informações sobre os principais reinos atuais.
+                Este aplicativo foi criado para fornecer informações abrangentes sobre os principais reinos contemporâneos.
                 </Text>
             </View>
             <TouchableOpacity style={styles.button} onPress={() => { router.replace("/") }}>
