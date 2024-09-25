@@ -3,8 +3,11 @@ import { Drawer } from "expo-router/drawer";
 import { Button, Text, TouchableOpacity, View, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../../hooks/Auth/index";
-import { DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import {
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
@@ -16,12 +19,18 @@ function CustomDrawerContent(props) {
           source={{
             uri: "https://www.github.com/pardiniz.png",
           }}
-          style={{ width: 100, height: 100, borderRadius: 50, margin:19 }}
+          style={{
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            margin: 19,
+            alignSelf: "center",
+          }}
         />
         <Text
           style={{ textAlign: "center", fontSize: 30, fontFamily: "regular" }}
         >
-          {user.user.nome}
+          {user?.user?.nome}
         </Text>
       </View>
       <DrawerContentScrollView {...props}>
@@ -33,11 +42,11 @@ function CustomDrawerContent(props) {
             alignItems: "center",
             height: 50,
             padding: 10,
-            backgroundColor: "#0000ff",
-            borderRadius: 5,
+            backgroundColor: "#800000",
+            borderRadius: 90,
           }}
         >
-          <Text style={{ color: "white", fontFamily: "bold" }}>Deslogar</Text>
+          <Text style={{ color: "white", fontFamily: "bold" }}>Sair</Text>
         </TouchableOpacity>
       </DrawerContentScrollView>
     </View>
@@ -71,10 +80,20 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="payment"
           options={{
-            drawerLabel: "Pagamentos",
-            headerTitle: "Pagamentos",
+            drawerLabel: "Reino da Suécia",
+            headerTitle: "Reino da Suécia",
             drawerIcon: () => (
-              <Ionicons name="diamond-outline" size={20} color="black" />
+              <FontAwesome6 name="crown" size={20} color="black" />
+            ),
+          }}
+        />
+        <Drawer.Screen
+          name="options"
+          options={{
+            drawerLabel: "Reino da Bélgica",
+            headerTitle: "Reino da Bélgica",
+            drawerIcon: () => (
+              <FontAwesome6 name="crown" size={20} color="black" />
             ),
           }}
         />
