@@ -80,8 +80,8 @@ const DrawerLayout = () => {
         <Drawer.Screen
           name="payment"
           options={{
-            drawerLabel: "Reino da Suécia",
-            headerTitle: "Reino da Suécia",
+            drawerLabel: "Pagamentos",
+            headerTitle: "Pagamentos",
             drawerIcon: () => (
               <FontAwesome6 name="crown" size={20} color="black" />
             ),
