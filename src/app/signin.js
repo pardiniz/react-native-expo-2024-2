@@ -18,7 +18,6 @@ export default function App() {
   const handleEntrarSuper = async () => {
     try {
       await signIn({ email, password });
-      router.replace("(protected)");
     } catch (error) {
       Alert.alert("Senha ou usuário incorretos");
       console.log(error);

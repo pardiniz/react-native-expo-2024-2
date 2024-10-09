@@ -17,7 +17,7 @@ export default function About() {
                 Este aplicativo foi criado para fornecer informações abrangentes sobre os principais reinos contemporâneos.
                 </Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => { router.replace("/") }}>
+            <TouchableOpacity style={styles.button} onPress={() => { router.back() }}>
                 <Text style={styles.buttonText}>Voltar</Text>
             </TouchableOpacity>
         </View>
