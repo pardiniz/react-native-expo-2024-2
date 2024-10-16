@@ -1,9 +1,25 @@
 import { router } from "expo-router";
-import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import {
+  Button,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { z } from "zod";
+
+const paymentSchema = z.object({
+  valor_pago: z.number().gt(0),
+  user_id: z.number().int().positive(),
+  user_cadastro: z.number().int().positive(),
+  data_vencimento: z.date(),
+});
 
 export default function Payment() {
   const [valor, setValor] = useState("0,00");
@@ -48,64 +64,109 @@ export default function Payment() {
   const [data, setData] = useState(new Date());
   const [viewCalendar, setViewCalendar] = useState(false);
   const [observacao, setObservacao] = useState("");
+  const valueRef = useRef();
 
   const handleCalendar = (event, selectedDate) => {
     setData(selectedDate);
     setViewCalendar(false);
   };
 
+  useEffect(() => {
+    valueRef?.current.focus();
+  }, []);
+
+  constHandleChangeValor = (value) => {
+    try {
+      let valorLimpo = value.replace(",", "").replace(".", "");
+      let valorConvertido = Number(valorLimpo) / 100;
+      if (valorConvertido === 0 || isNaN(valorConvertido)) {
+        setValor("0,00");
+        return;
+      }
+      let valorPtBR = Int1.NumberFormat("pt-BR", {
+        style: "decimal",
+        minimumFractionDigitis: 2,
+      }).format(valorConvertido);
+      setValor(valorPtBR);
+    } catch (error) {
+      setValor("0,00");
+    }
+  };
+
+const handleSubmit = async () => {
+  const payment = {
+    user_id: id,
+    user_cadastro: 1,
+    valor_pago: valor,
+    data_pagamento: data,
+  };
+
+ try {
+
+ } catch (error){
+  const result = await paymentSchema.parseAsync(payment)
+ }
+
+};
+
   return (
-    <View style={styles.content}>
-      <Text>Inserir Pagamentos</Text>
-      <View style={styles.inputView}>
-        <Ionicons name="wallet-outline" size={24} color="black" />
-        <TextInput
-          placeholder="Valor"
-          keyboardType="decimal-pad"
-          style={styles.inputValor}
-          value={valor}
-          onChangeText={setValor}
-        />
-      </View>
-      <View style={styles.inputView}>
-        <Picker
-          selectedValue={id}
-          onValueChange={(itemValue) => setId(itemValue)}
-          style={{ width: "100%" }}
-        >
-          {sugestoes.map((item) => (
-            <Picker.Item key={item.id} label={item.nome} value={item.id} />
-          ))}
-        </Picker>
-      </View>
-      <View style={styles.inputView}>
-        <Text onPress={() => setViewCalendar(true)} style={styles.inputData}>
-          {data.toLocaleDateString()}
-        </Text>
-        {viewCalendar && (
-          <DateTimePicker
-            value={data}
-            onChange={handleCalendar}
-            mode="date"
-            testID="dateTimePicker"
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "android" ? "padding" : "height"}
+    >
+      <View style={styles.content}>
+        <Text>Inserir Pagamentos</Text>
+        <View style={styles.inputView}>
+          <Ionicons name="wallet-outline" size={24} color="black" />
+          <TextInput
+            placeholder="Valor"
+            keyboardType="decimal-pad"
+            style={styles.inputValor}
+            value={valor}
+            onChangeText={(newValue) => constHandleChangeValor(newValue)}
+            ref={valueRef}
           />
-        )}
+        </View>
+        <View style={styles.inputView}>
+          <Picker
+            selectedValue={id}
+            onValueChange={(itemValue) => setId(itemValue)}
+            style={{ width: "100%" }}
+          >
+            {sugestoes.map((item) => (
+              <Picker.Item key={item.id} label={item.nome} value={item.id} />
+            ))}
+          </Picker>
+        </View>
+        <View style={styles.inputView}>
+          <Text onPress={() => setViewCalendar(true)} style={styles.inputData}>
+            {data.toLocaleDateString().split("T")[0]}
+          </Text>
+          {viewCalendar && (
+            <DateTimePicker
+              value={data}
+              onChange={handleCalendar}
+              mode="date"
+              testID="dateTimePicker"
+            />
+          )}
+        </View>
+        <View style={styles.inputView}>
+          <TextInput
+            placeholder="Observações"
+            style={styles.inputObservacao}
+            value={observacao}
+            onChangeText={setObservacao}
+            multiline={true}
+          />
+        </View>
+        <View style={styles.contentButtons}>
+          <Button title="Salvar" />
+          <Button title="Continuar" />
+          <Button title="Cancelar" onPress={() => router.back()} />
+        </View>
       </View>
-      <View style={styles.inputView}>
-        <TextInput
-          placeholder="Observações"
-          style={styles.inputObservacao}
-          value={observacao}
-          onChangeText={setObservacao}
-          multiline={true}
-        />
-      </View>
-      <View style={styles.contentButtons}>
-        <Button title="Salvar" />
-        <Button title="Continuar" />
-        <Button title="Cancelar" onPress={() => router.back()} />
-      </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
