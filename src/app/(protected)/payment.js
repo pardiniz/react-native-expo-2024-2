@@ -13,6 +13,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { z } from "zod";
+import { useAuth } from "../../hooks/Auth/index"
 
 const paymentSchema = z.object({
   valor_pago: z.number().gt(0),
@@ -65,6 +66,7 @@ export default function Payment() {
   const [viewCalendar, setViewCalendar] = useState(false);
   const [observacao, setObservacao] = useState("");
   const valueRef = useRef();
+  const {user} = useAuth()
 
   const handleCalendar = (event, selectedDate) => {
     setData(selectedDate);
@@ -80,33 +82,33 @@ export default function Payment() {
       let valorLimpo = value.replace(",", "").replace(".", "");
       let valorConvertido = Number(valorLimpo) / 100;
       if (valorConvertido === 0 || isNaN(valorConvertido)) {
-        setValor("0,00");
-        return;
+        return 0
       }
-      let valorPtBR = Int1.NumberFormat("pt-BR", {
-        style: "decimal",
-        minimumFractionDigitis: 2,
-      }).format(valorConvertido);
-      setValor(valorPtBR);
+       return valorConvertido
     } catch (error) {
-      setValor("0,00");
+      return valorConvertido
     }
   };
+
+
+  const convertValue = (value) => {
+
+  }
 
 const handleSubmit = async () => {
   const payment = {
     user_id: id,
-    user_cadastro: 1,
-    valor_pago: valor,
+    user_cadastro: Number (user.user.id),
+    valor_pago: convertValue(valor),
     data_pagamento: data,
   };
 
  try {
-
- } catch (error){
   const result = await paymentSchema.parseAsync(payment)
+  console.log(result);
+ } catch (error){
+   console.log(error);
  }
-
 };
 
   return (
@@ -161,7 +163,7 @@ const handleSubmit = async () => {
           />
         </View>
         <View style={styles.contentButtons}>
-          <Button title="Salvar" />
+          <Button title="Salvar" onPress={handleSubmit} />
           <Button title="Continuar" />
           <Button title="Cancelar" onPress={() => router.back()} />
         </View>
