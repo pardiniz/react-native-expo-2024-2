@@ -44,14 +44,15 @@ export default function Payment() {
   useEffect(() => {
     (async () => {
       
-    })();
-    
-    
     valueRef?.current.focus();
     try{
     const users = await getAllUsers();
+    setSugestoes(users);
+    setId(users[0].id);
     } catch (error) {}
-  }, []);
+    })();
+    
+    }, []);
 
   constHandleChangeValor = (value) => {
     try {
@@ -79,8 +80,12 @@ export default function Payment() {
     try {
       const result = await paymentSchema.parseAsync(payment);
       const { insertedID } = await createPayment(payment);
-      console.log(result);
       console.log(insertedID);
+      setValor("0,00");
+      setId(sugestoes[0].id);
+      setData(new Date());
+      setObservacao("");
+      valueRef?.current.focus();
     } catch (error) {
       console.log(error);
     }
