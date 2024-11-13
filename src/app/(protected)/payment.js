@@ -13,7 +13,9 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { z } from "zod";
-import { useAuth } from "../../hooks/Auth/index"
+import { usePaymentsDatabase } from "../../database/usePaymentsDatabase";
+import { useUserDatabase } from "../..database/useUserDatabase";
+import { useAuth } from "../../hooks/Auth/index";
 
 const paymentSchema = z.object({
   valor_pago: z.number().gt(0),
@@ -24,49 +26,15 @@ const paymentSchema = z.object({
 
 export default function Payment() {
   const [valor, setValor] = useState("0,00");
-  const [sugestoes, setSugestoes] = useState([
-    { id: 1, nome: "Vittorio Garnson" },
-    { id: 2, nome: "Zeke Lorek" },
-    { id: 3, nome: "Edie McOrkil" },
-    { id: 4, nome: "Madella Sambles" },
-    { id: 5, nome: "Nolie Morrel" },
-    { id: 6, nome: "Rustin Skully" },
-    { id: 7, nome: "Stephana Lockton" },
-    { id: 8, nome: "Hamil Worton" },
-    { id: 9, nome: "Gregor Edden" },
-    { id: 10, nome: "Merle Siddele" },
-    { id: 11, nome: "Byram Hourihane" },
-    { id: 12, nome: "Jeanelle Reddy" },
-    { id: 13, nome: "Newton Casiroli" },
-    { id: 14, nome: "Piper Simonian" },
-    { id: 15, nome: "Kalindi Mattisson" },
-    { id: 16, nome: "Kordula De Matteis" },
-    { id: 17, nome: "Joellyn Eastman" },
-    { id: 18, nome: "Ki Winsborrow" },
-    { id: 19, nome: "Bellina Bedinham" },
-    { id: 20, nome: "Addie Duncan" },
-    { id: 21, nome: "Deck Frane" },
-    { id: 22, nome: "Katey Dobby" },
-    { id: 23, nome: "Dalila Kirtley" },
-    { id: 24, nome: "Jaquith Sineath" },
-    { id: 25, nome: "Scot Annis" },
-    { id: 26, nome: "Elfrida Widmore" },
-    { id: 27, nome: "Emylee Verrill" },
-    { id: 28, nome: "Waneta Hiner" },
-    { id: 29, nome: "Paco Avesque" },
-    { id: 30, nome: "Viki Wrigley" },
-    { id: 31, nome: "Lorens Gherardi" },
-    { id: 32, nome: "Phil Aleevy" },
-    { id: 33, nome: "Georgy Cuchey" },
-    { id: 34, nome: "Olimpia Pawelski" },
-    { id: 35, nome: "Rivy Dorrell" },
-  ]);
+  const [sugestoes, setSugestoes] = useState
   const [id, setId] = useState(1);
   const [data, setData] = useState(new Date());
   const [viewCalendar, setViewCalendar] = useState(false);
   const [observacao, setObservacao] = useState("");
   const valueRef = useRef();
-  const {user} = useAuth()
+  const { user } = useAuth();
+  const { createPayment } = usePaymentsDatabase();
+  const { getAllUsers } = useUsersDatabase();
 
   const handleCalendar = (event, selectedDate) => {
     setData(selectedDate);
@@ -74,7 +42,15 @@ export default function Payment() {
   };
 
   useEffect(() => {
+    (async () => {
+      
+    })();
+    
+    
     valueRef?.current.focus();
+    try{
+    const users = await getAllUsers();
+    } catch (error) {}
   }, []);
 
   constHandleChangeValor = (value) => {
@@ -82,34 +58,33 @@ export default function Payment() {
       let valorLimpo = value.replace(",", "").replace(".", "");
       let valorConvertido = Number(valorLimpo) / 100;
       if (valorConvertido === 0 || isNaN(valorConvertido)) {
-        return 0
+        return 0;
       }
-       return valorConvertido
+      return valorConvertido;
     } catch (error) {
-      return valorConvertido
+      return valorConvertido;
     }
   };
 
+  const convertValue = (value) => {};
 
-  const convertValue = (value) => {
+  const handleSubmit = async () => {
+    const payment = {
+      user_id: id,
+      user_cadastro: Number(user.user.id),
+      valor_pago: convertValue(valor),
+      data_pagamento: data,
+    };
 
-  }
-
-const handleSubmit = async () => {
-  const payment = {
-    user_id: id,
-    user_cadastro: Number (user.user.id),
-    valor_pago: convertValue(valor),
-    data_pagamento: data,
+    try {
+      const result = await paymentSchema.parseAsync(payment);
+      const { insertedID } = await createPayment(payment);
+      console.log(result);
+      console.log(insertedID);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
- try {
-  const result = await paymentSchema.parseAsync(payment)
-  console.log(result);
- } catch (error){
-   console.log(error);
- }
-};
 
   return (
     <KeyboardAvoidingView

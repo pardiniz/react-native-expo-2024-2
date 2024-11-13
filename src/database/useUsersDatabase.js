@@ -17,30 +17,20 @@ export function useUserDatabase() {
     }
   }
 
-  
-
-   async function create ({
-    user_id,
-    user_cadastro,
-    valor_pago,
-    data_pagamento,
-    observacao,
-   })  {
-     const statment = await database.prepareAsync(`
-      INSERT INTO payments (user_id, user_cadastro, valor_pago, data_pagamento, observacao) 
-      VALUE ($user_id, $user_cadastro, $valor_pago, $data_pagamento, $observacao);
-     `);
-
-      try{
-        const result = await statment.executeAsync({});
-      } catch (error) {
-
-      } finally {
-
-      }
+  async function getAllusers() {
+   try{
+    const result = await database.getAllAsync('SELECT id, nome FROM users');
+    return result;
+   } catch (error) {
+    console.error("useUsersDatabase getAllUsers error: ", error);
+    throw error;
    }
+   
+  }
+
+   
 
   return {
-    authUser,
+    authUser, 
   };
 }
