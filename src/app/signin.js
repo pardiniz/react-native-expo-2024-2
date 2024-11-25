@@ -20,7 +20,7 @@ export default function App() {
       await signIn({ email, password });
     } catch (error) {
       Alert.alert("Senha ou usuário incorretos");
-      console.log(error);
+      console.log(error);  // Aqui você pode tentar melhorar o erro exibido para o usuário
     }
   };
 
@@ -29,7 +29,7 @@ export default function App() {
       <Text style={styles.title}>Majestade</Text>
 
       <View style={styles.inputbox}>
-        <Ionicons name="mail-open-outline" size={20} color="" />
+        <Ionicons name="mail-open-outline" size={20} color="#800000" />
         <TextInput
           style={styles.emailinput}
           placeholder="E-mail"
@@ -39,7 +39,7 @@ export default function App() {
         />
       </View>
       <View style={styles.inputbox}>
-        <Ionicons name="lock-closed-outline" size={20} color="000" />
+        <Ionicons name="lock-closed-outline" size={20} color="#800000" />
         <TextInput
           style={styles.emailinput}
           placeholder="Senha"
@@ -63,10 +63,10 @@ export default function App() {
       />
       <Button title="Sobre" 
         color="#800000"
-      onPress={() => router.push("/about")} />
+        onPress={() => router.push("/about")} />
       <Button
         title="Sair do aplicativo"
-          color="#800000"
+        color="#800000"
         onPress={() => BackHandler.exitApp()}
       />
       <StatusBar style="auto" />
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#800000", // Cor de texto rica
     marginBottom: 20,
-    
   },
   inputbox: {
     flexDirection: "row",
@@ -96,18 +95,16 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     alignItems: "center",
     borderBottomWidth: 2,
-    borderBottomColor: "#800000", 
-    // Cor da borda
+    borderBottomColor: "#800000", // Cor da borda
   },
   emailinput: {
     flex: 1,
     fontFamily: "serif", // Fonte mais clássica
     fontSize: 18,
     color: "#800000",
-    
   },
   button: {
     width: "100%",
-   
   },
 });
+
