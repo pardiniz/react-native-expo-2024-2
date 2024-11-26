@@ -31,17 +31,18 @@ export default function App() {
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="#800000" />
         <TextInput
-          style={styles.emailinput}
+          style={styles.input}
           placeholder="E-mail"
           value={email}
           onChangeText={setEmail}
           placeholderTextColor="#800000"
         />
       </View>
+
       <View style={styles.inputbox}>
         <Ionicons name="lock-closed-outline" size={20} color="#800000" />
         <TextInput
-          style={styles.emailinput}
+          style={styles.input}
           placeholder="Senha"
           value={password}
           onChangeText={setPassword}
@@ -56,19 +57,30 @@ export default function App() {
         />
       </View>
 
-      <Button
-        color="#800000"
-        title="Entrar"
-        onPress={handleEntrarSuper}
-      />
-      <Button title="Sobre" 
-        color="#800000"
-        onPress={() => router.push("/about")} />
-      <Button
-        title="Sair do aplicativo"
-        color="#800000"
-        onPress={() => BackHandler.exitApp()}
-      />
+      <View style={styles.buttonContainer}>
+        <Button
+          color="#800000"
+          title="Entrar"
+          onPress={handleEntrarSuper}
+        />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button 
+          color="#800000"
+          title="Sobre"
+          onPress={() => router.push("/about")} 
+        />
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Button
+          color="#800000"
+          title="Sair do aplicativo"
+          onPress={() => BackHandler.exitApp()}
+        />
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -81,30 +93,34 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    gap: 10,
+    gap: 20, // Aumentei o espaçamento entre os componentes
   },
   title: {
     fontFamily: "serif", // Fonte mais clássica
-    fontSize: 24,
+    fontSize: 28, // Tamanho de fonte maior
     color: "#800000", // Cor de texto rica
-    marginBottom: 20,
+    marginBottom: 40, // Aumentei a margem inferior para dar mais destaque
+    fontWeight: "bold", // Negrito para dar mais presença
   },
   inputbox: {
     flexDirection: "row",
-    gap: 10,
-    marginVertical: 10,
+    gap: 12, // Aumentei o espaço entre os ícones e o campo de entrada
+    marginVertical: 12, // Aumentei a margem vertical para separar melhor os campos
     alignItems: "center",
     borderBottomWidth: 2,
     borderBottomColor: "#800000", // Cor da borda
+    paddingVertical: 8, // Adicionando um pouco de espaçamento para o campo de texto
+    width: "100%", // Garantir que o campo de entrada ocupe toda a largura disponível
   },
-  emailinput: {
+  input: {
     flex: 1,
     fontFamily: "serif", // Fonte mais clássica
     fontSize: 18,
     color: "#800000",
+    paddingVertical: 5, // Adicionando um pouco de espaçamento interno
   },
-  button: {
+  buttonContainer: {
     width: "100%",
+    marginVertical: 12, // Adicionando espaçamento vertical para os botões
   },
 });
-

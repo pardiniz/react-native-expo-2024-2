@@ -77,26 +77,37 @@ const DrawerLayout = () => {
             ),
           }}
         />
-        <Drawer.Screen
-          name="payment"
+         <Drawer.Screen
+          name="suec"
           options={{
-            drawerLabel: "Pagamentos",
-            headerTitle: "Pagamentos",
+            drawerLabel: "Reino Moderno da Suécia",
+            headerTitle: "Reino Moderno da Suécia",
             drawerIcon: () => (
               <FontAwesome6 name="crown" size={20} color="black" />
             ),
           }}
         />
-        <Drawer.Screen
-          name="options"
+         <Drawer.Screen
+          name="belg"
           options={{
-            drawerLabel: "Reino da Bélgica",
-            headerTitle: "Reino da Bélgica",
+            drawerLabel: "Reino Moderno da Bélgica",
+            headerTitle: "Reino Moderno da Bélgica",
             drawerIcon: () => (
               <FontAwesome6 name="crown" size={20} color="black" />
             ),
           }}
         />
+         <Drawer.Screen
+          name="belg"
+          options={{
+            drawerLabel: "Reino Moderno do Japão",
+            headerTitle: "Reino Moderno do Japão",
+            drawerIcon: () => (
+              <FontAwesome6 name="crown" size={20} color="black" />
+            ),
+          }}
+        />
+        
       </Drawer>
     </GestureHandlerRootView>
   );
