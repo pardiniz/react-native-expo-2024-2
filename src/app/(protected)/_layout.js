@@ -97,8 +97,8 @@ const DrawerLayout = () => {
             ),
           }}
         />
-             <Drawer.Screen
-          name="cor"
+        <Drawer.Screen
+          name="coro"
           options={{
             drawerLabel: "Coroas e Séries",
             headerTitle: "Coroas e Séries",
@@ -107,6 +107,9 @@ const DrawerLayout = () => {
             ),
           }}
         />
+        
+
+  
       </Drawer>
     </GestureHandlerRootView>
   );
