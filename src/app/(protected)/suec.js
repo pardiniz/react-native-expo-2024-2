@@ -7,7 +7,7 @@ export default function List() {
       
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Flag_of_Sweden.svg/1920px-Flag_of_Sweden.svg.png' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/640px-Flag_of_Sweden.svg.png' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Bandeira da Suécia</Text>
@@ -18,7 +18,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Stockholm_in_September_2017.jpg' }} 
+          source={{ uri: 'https://borealisexpedicoes.com.br/wp-content/uploads/estocolmo-vista-da-agua-scaled.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Estocolmo</Text>
@@ -29,7 +29,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Sweden_Royal_Palace_2016.jpg' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Royalpalace_Stockholm.jpg/800px-Royalpalace_Stockholm.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Palácio Real de Estocolmo</Text>
@@ -40,7 +40,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/King_Carl_XVI_Gustaf_in_2013.jpg' }} 
+          source={{ uri: 'https://caras.com.br/media/uploads/2023-setembro/jubileu-de-ouro-do-rei-da-suecia.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Rei Carl XVI Gustaf</Text>
@@ -51,7 +51,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Princess_Victoria_of_Sweden_2015.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQtoW_XfmwmdK_yCszT-4WuNJjiLqrheu3NA&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Princesa Victoria</Text>
@@ -62,7 +62,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Princess_Madeleine_of_Sweden_2013.jpg' }} 
+          source={{ uri: 'https://uploads.metroimg.com/wp-content/uploads/2024/07/02113948/Princesa-Madeleine-da-Suecia.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Princesa Madeleine</Text>
@@ -73,7 +73,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Prince_Carl_Philip_of_Sweden_2014.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh1hvS4L9uhC9v9LeSEXypFX5yOa6Y6_vOaQ&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Príncipe Carl Philip</Text>
@@ -84,7 +84,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Falun_Mine_-_UNESCO_World_Heritage_Site_-_Sweden.jpg' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Falu_koppargruva.jpg/1200px-Falu_koppargruva.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Minas de Falun</Text>
@@ -95,7 +95,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/56/Vasa_Museum_Stockholm.jpg' }} 
+          source={{ uri: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/2e/17/99/smtm.jpg?w=1200&h=-1&s=1' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Museu Vasa</Text>
@@ -106,7 +106,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Sweden_Swedish_Fika.jpg' }} 
+          source={{ uri: 'https://media.glamourmagazine.co.uk/photos/6374f98f8919dc2f070fe75d/16:9/w_2560%2Cc_limit/SWEDISH%2520METHOD%2520OF%2520RELAXATION%2520161122_SF%2520GettyImages-1216576835..jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Fika</Text>

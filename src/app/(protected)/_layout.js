@@ -97,17 +97,16 @@ const DrawerLayout = () => {
             ),
           }}
         />
-         <Drawer.Screen
-          name="belg"
+             <Drawer.Screen
+          name="cor"
           options={{
-            drawerLabel: "Reino Moderno do Japão",
-            headerTitle: "Reino Moderno do Japão",
+            drawerLabel: "Coroas e Séries",
+            headerTitle: "Coroas e Séries",
             drawerIcon: () => (
               <FontAwesome6 name="crown" size={20} color="black" />
             ),
           }}
         />
-        
       </Drawer>
     </GestureHandlerRootView>
   );

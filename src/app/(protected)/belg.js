@@ -18,7 +18,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Brussels_%28Belgium%29_-_Grand_Place.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUPvHlHZFBC1mcbWjU2qEi0Y-4QzrBIAYf1A&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Bruxelas</Text>
@@ -29,7 +29,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Palais_Royal_Bruxelles.jpg' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/b/b4/Paleis_brussel2.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Palácio Real de Bruxelas</Text>
@@ -40,7 +40,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/1/18/King_Philippe_of_Belgium.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy3A128cQxPUm4wZ-VN4RCkoUYIsec82OkQg&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Rei Filipe da Bélgica</Text>
@@ -51,7 +51,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Princess_Mathilde_of_Belgium_2019.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGt_pwTDTzR5wrON4ZYC-RHXyUp4o8hJfwkA-a73g7m56FkTcqnFFOK3BJ9Q8RDXMGn78&usqp=CAU' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Princesa Mathilde</Text>
@@ -62,7 +62,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/1/1d/Prince_Laurent_of_Belgium_2017.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDqcDcthBlV9oga2xdGTPHQGI6mG6X-Tv-Qw&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Príncipe Laurent</Text>
@@ -73,7 +73,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/1/16/Atomium_Brussels.jpg' }} 
+          source={{ uri: 'https://www.atomium.be/Content/Images/Atomium_Style.html.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Atomium</Text>
@@ -84,7 +84,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Belgium_Museum_of_Fine_Arts.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOMqmEetmND-K7htripTJy6WL1dm5Q4QRurA&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Museu Real de Belas Artes</Text>
@@ -95,7 +95,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/9/98/Belgian_chocolate_-_Brussels%2C_Belgium.jpg' }} 
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31-QPsXN-U_P5Ojijvj4wnv-Gp-Eex5Sg0w&s' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Chocolate Belga</Text>
@@ -106,7 +106,7 @@ export default function List() {
 
       <View style={styles.card}>
         <Image 
-          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/d/d2/Belgian_Waffles.jpg' }} 
+          source={{ uri: 'https://i.ytimg.com/vi/w1ntVWlDrlo/maxresdefault.jpg' }} 
           style={styles.image} 
         />
         <Text style={styles.subtitle}>Waffles Belgas</Text>
