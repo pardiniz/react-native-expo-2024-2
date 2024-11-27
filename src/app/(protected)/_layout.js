@@ -107,6 +107,16 @@ const DrawerLayout = () => {
             ),
           }}
         />
+         <Drawer.Screen
+          name="more"
+          options={{
+            drawerLabel: "Extra Maria Antonieta",
+            headerTitle: "Extra Maria Antonieta",
+            drawerIcon: () => (
+              <FontAwesome6 name="crown" size={20} color="black" />
+            ),
+          }}
+        />
         
 
   

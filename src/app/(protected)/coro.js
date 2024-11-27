@@ -36,7 +36,7 @@ export default function CoroasESeries() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Coroas e Séries</Text>
+      <Text style={styles.title}>Coroas & Séries</Text>
       
       {series.map((serie, index) => (
         <View key={index} style={styles.card}>
